@@ -1,7 +1,10 @@
+"use strict";
+
 var React = require('react');
 var RadialItem = require('./radial-item.react');
 require('velocity-animate');
 require('velocity-animate/velocity.ui');
+
 
 var ReactRadialMenu = React.createClass({
 
