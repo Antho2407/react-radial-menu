@@ -30,7 +30,7 @@ npm install react-radial-menu --save
 ``` javascript
 window.jQuery = window.$ = require("jquery");
 
-var RadialMenu = require('radial-menu.react');
+var RadialMenu = require('react-radial-menu');
 
 var React = require('react');
 window.React = React;
