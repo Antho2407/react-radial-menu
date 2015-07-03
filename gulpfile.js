@@ -5,8 +5,6 @@ var watchify = require('watchify');
 var reactify = require('reactify'); 
 var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
-var gutil = require('gulp-util');
-var add = require('gulp-add-src');
 
 var uglify = require('gulp-uglify');
 var streamify = require('gulp-streamify');
@@ -21,7 +19,7 @@ var path = {
   DEST: 'dist',
   DEST_BUILD: 'dist/build',
   DEST_SRC: 'dist/src',
-  ENTRY_POINT: './src/js/components/radial-menu.react.js'
+  ENTRY_POINT: './src/js/app.js'
 };
 
 gulp.task('copy', function(){
