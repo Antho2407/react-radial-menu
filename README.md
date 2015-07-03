@@ -5,7 +5,7 @@ A ReactJS circular menu
 
 ## Demo
 
-Live demo: [http://adamota.com/react-radial-menu/](http://http://adamota.com/react-radial-menu/)
+Live demo: [http://www.adamota.com/react-radial-menu/](www.adamota.com/react-radial-menu/)
 
 Build the example
 
