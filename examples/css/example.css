@@ -24,7 +24,6 @@ body{
 #selectAnimation, #selectDuration, #selectStagger{
   padding: 10px;
   width: 130px;
-  border-radius: 10px;
 }
 
 #selectAnimation:focus, #selectDuration:focus, #selectStagger:focus{
@@ -37,7 +36,7 @@ body{
   width: 220px;
   padding: 10px;
   border-right: solid #FFF 2px;
-  box-shadow: #FFFFFF 3px 1px 7px 1px;
+  box-shadow: #B5B5B5 3px 1px 7px 1px;
   text-align: center;
   vertical-align: middle;
   color: white;
