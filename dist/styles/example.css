@@ -1,14 +1,18 @@
-html, body{
-    height:100%;
-    margin:0;
-    padding:0;
+html, body {
+    margin: 0;
+    padding: 0;
     overflow: hidden;
 }
+
 body{
     background: #FFF;
 }
 
-#container{
+html, body, #app {
+  height:100%;
+}
+
+#container {
   height:100%;
 }
 
@@ -21,16 +25,16 @@ body{
   margin: auto;
 }
 
-#selectAnimation, #selectDuration, #selectStagger{
+#selectAnimation, #selectDuration, #selectStagger {
   padding: 10px;
   width: 130px;
 }
 
-#selectAnimation:focus, #selectDuration:focus, #selectStagger:focus{
+#selectAnimation:focus, #selectDuration:focus, #selectStagger:focus {
   outline:0;
 }
 
-#panel-options{
+#panel-options {
   background-color: #559ED3;
   height: 100%;
   width: 220px;
@@ -42,6 +46,6 @@ body{
   color: white;
 }
 
-.fork-img{
+.fork-img {
   position: absolute; top: 0; right: 0; border: 0;
 }
