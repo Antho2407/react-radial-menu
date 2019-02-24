@@ -46,29 +46,23 @@ class RadialMenu extends Component {
 		}
 	}
 
-	createItems = (items, sizeCenter) => {
+	createItems = items => {
         const {
-            radius,
-            distance
+            distance,
+            itemsSize
         } = this.props
 		const length = items.length;
 		const result = [];
-        const currentRadius = radius / 2
 		let top, left;
-		let currentDistance = distance;
-
-		if (distance < 0) {
-            currentDistance = currentRadius + 30;
-        }
 
 		for (let i = 0; i < length; i++) {
 			const item = items[i];
-			left = `calc(50% + ${-currentDistance * (Math.cos(-0.5 * Math.PI - (2 * Math.PI * i) / length))}px)`;
-			top = `calc(50% + ${currentDistance * (Math.sin(-0.5 * Math.PI - (2 * Math.PI * i) / length))}px)`;
+			left = `${(itemsSize + distance) * (-1) * (Math.cos(-0.5 * Math.PI - (2 * Math.PI * i) / length))}px`;
+			top = `${(itemsSize + distance) * (Math.sin(-0.5 * Math.PI - (2 * Math.PI * i) / length))}px`;
 
 			result.push(<RadialItem
                 key={i}
-                radius={currentRadius}
+                size={itemsSize}
                 href={item.href}
 				className="children"
                 left={left}
@@ -86,8 +80,9 @@ class RadialMenu extends Component {
 		element.toggleClass("hover");
 		$(".hover").velocity("stop").velocity(
 			{scale:1.25},
-			{duration: 200});
-		}
+			{duration: 200}
+        );
+	}
 
 	handleLeave = (event, element) => {
 		 $(".hover").velocity("stop").velocity(
@@ -106,18 +101,15 @@ class RadialMenu extends Component {
 	}
 
     render () {
-        const { radius, items } = this.props
-      	const sizeCenter = (radius / 2.6).toFixed(5);
-      	const currentItems = this.createItems(items, sizeCenter);
-      	const sizeNav = radius * 2;
-
+        const { radius, items, itemsSize, center } = this.props;
+      	const currentItems = this.createItems(items);
+      	const sizeNav = 200;
       	const navStyle = {
       		"width": sizeNav,
       		"height": sizeNav
       	};
 
-      	return <Fragment>
-      		<nav className="radial-menu-nav" style={navStyle}>
+      	return <div className="radial-menu-container">
 
       		<div className="radial-menu-circle">
                 {currentItems.map(item => item)}
@@ -126,12 +118,11 @@ class RadialMenu extends Component {
       		<RadialItem
                 href="#"
                 className="radial-menu-button"
-                radius={sizeCenter}
+                size={itemsSize}
                 handleClick={this.handleMenuClick}
-                image={this.props.center.image}
+                image={center.image}
             />
-      		</nav>
-        </Fragment>;
+        </div>;
     }
 }
 
@@ -139,7 +130,7 @@ RadialMenu.propTypes = {
     animation: PropTypes.string,
     duration: PropTypes.number,
     stagger: PropTypes.number,
-    radius: PropTypes.number,
+    itemsSize: PropTypes.number,
     easing: PropTypes.array,
     distance: PropTypes.number
 }
@@ -148,9 +139,9 @@ RadialMenu.defaultProps = {
     animation: "transition.swoopIn",
     duration: 600,
     stagger: 100,
-    radius: 200,
+    itemsSize: 100,
     easing: [0.175, 0.885, 0.32, 1.275],
-    distance: -1
+    distance: 30
 }
 
 export default RadialMenu

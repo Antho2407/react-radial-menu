@@ -20,23 +20,24 @@ export default class App extends Component {
     state = {
          animation: "transition.swoopIn",
          duration: 600,
-         stagger: 100
+         stagger: 100,
+         distance: 30
      }
 
 	setAnimation = event => {
-		this.setState({animation: event.target.value});
+		this.setState({animation: parseInt(event.target.value)});
 	}
 
 	setDuration = event => {
-		this.setState({duration: event.target.value});
+		this.setState({duration: parseInt(event.target.value)});
 	}
 
 	setStagger = event => {
-		this.setState({stagger: event.target.value});
+		this.setState({stagger: parseInt(event.target.value)});
 	}
 
     setDistance = event => {
-		this.setState({distance: event.target.value});
+		this.setState({distance: parseInt(event.target.value)});
 	}
 
 	render () {
@@ -50,7 +51,7 @@ export default class App extends Component {
 		return <div id="container">
 			<div id="panel-options">
 				<h2>Animation</h2>
-				<select id="selectAnimation" onChange={this.setAnimation} defaultValue={200}>
+				<select id="selectAnimation" onChange={this.setAnimation} defaultValue={animation}>
 		            <option value="transition.swoopIn">Default</option>
 		            <option value="transition.shrinkIn">shrinkIn</option>
 		            <option value="transition.fadeIn">fadeIn</option>
@@ -58,7 +59,7 @@ export default class App extends Component {
 		            <option value="transition.flipBounceXIn">flipBounceXIn</option>
 		        </select>
 		        <h2>Speed</h2>
-		        <select id="selectDuration" onChange={this.setDuration} defaultValue={600}>
+		        <select id="selectDuration" onChange={this.setDuration} defaultValue={duration}>
 		            <option value={600}>Default</option>
 		            <option value={400}>400</option>
 		            <option value={600}>600</option>
@@ -66,7 +67,7 @@ export default class App extends Component {
 		            <option value={1000}>1000</option>
 		        </select>
 		        <h2>Stagger</h2>
-		        <select id="selectStagger" onChange={this.setStagger} defaultValue={200}>
+		        <select id="selectStagger" onChange={this.setStagger} defaultValue={stagger}>
 		            <option value={200}>Default</option>
 		            <option value={0}>0</option>
 		            <option value={50}>50</option>
@@ -75,22 +76,24 @@ export default class App extends Component {
 		            <option value={200}>200</option>
 		        </select>
                 <h2>Distance</h2>
-		        <select id="selectStagger" onChange={this.setDistance} defaultValue={-1}>
-		            <option value={-1}>Default</option>
+		        <select id="selectStagger" onChange={this.setDistance} defaultValue={distance}>
+		            <option value={30}>Default</option>
+		            <option value={50}>50</option>
 		            <option value={100}>100</option>
 		            <option value={150}>150</option>
-		            <option value={200}>200</option>
 		        </select>
 	        </div>
-			<RadialMenu
-                items={items}
-                center={center}
-                animation={animation}
-                duration={duration}
-                stagger={stagger}
-                radius={200}
-                distance={distance}
-            />
+            <div id="content">
+                <RadialMenu
+                    items={items}
+                    center={center}
+                    animation={animation}
+                    duration={duration}
+                    stagger={stagger}
+                    itemsSize={100}
+                    distance={distance}
+                />
+            </div>
 			<a href="https://github.com/Antho2407">
                 <img
                     className="fork-img"

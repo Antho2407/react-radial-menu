@@ -9,7 +9,7 @@ class RadialItem extends Component {
     render () {
         const {
             className,
-            radius,
+            size,
             top,
             left,
             image,
@@ -17,22 +17,14 @@ class RadialItem extends Component {
             href,
             children
         } = this.props
-        const marginValue = (-1) * (radius / 2) + "px";
-      	let margin;
-
-      	if (className !== "children") {
-      		margin = "auto";
-      	} else {
-      		margin = marginValue + " 0px 0px " + marginValue;
-      	}
+        const marginValue = (-1) * (size / 2) + "px";
 
       	const itemStyle = {
-            top: top,
-            left: left,
-            width: `${radius}px`,
-            height : `${radius}px`,
-            lineHeight: `${radius}px`,
-            margin,
+            top,
+            left,
+            width: `${size}px`,
+            height: `${size}px`,
+            lineHeight: `${size}px`,
             backgroundImage: image,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover"
@@ -63,12 +55,13 @@ RadialItem.propTypes = {
     href: PropTypes.string,
     top: PropTypes.string,
     left: PropTypes.string,
-    value: PropTypes.string
+    value: PropTypes.string,
+    size: PropTypes.number
 }
 
 RadialItem.defaultProps = {
     image: "none",
-    radius: 100
+    size: 100
 }
 
 export default RadialItem
