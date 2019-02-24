@@ -27,15 +27,15 @@ class RadialItem extends Component {
       	}
 
       	const itemStyle = {
-      		"top": top,
-      		"left": left,
-      		"width": `${radius}px`,
-      		"height" : `${radius}px`,
-      		"lineHeight": `${radius}px`,
-      		"margin": margin,
-      		"backgroundImage": image,
-    		  "backgroundRepeat":"no-repeat",
-    		  "backgroundSize": "cover"
+            top: top,
+            left: left,
+            width: `${radius}px`,
+            height : `${radius}px`,
+            lineHeight: `${radius}px`,
+            margin,
+            backgroundImage: image,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover"
       	};
 
         if (image !== "none") {

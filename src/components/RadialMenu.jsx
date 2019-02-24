@@ -15,11 +15,12 @@ class RadialMenu extends Component {
             animation,
             easing
         } = this.props
+        const circle = $('.radial-menu-circle');
+		const that = this;
 
 		event.preventDefault();
 		$('.menu-button').toggleClass('open');
-		const circle = $('.radial-menu-circle');
-		const that = this;
+
 		if(circle.hasClass('open')){
 			circle.velocity('stop');
 			$('.radial-menu-circle a').off('mouseenter mouseleave');
@@ -51,19 +52,20 @@ class RadialMenu extends Component {
             distance
         } = this.props
 		const length = items.length;
-		const result =  [];
+		const result = [];
+        const currentRadius = radius / 2
 		let top, left;
-		const currentRadius = (radius / 2).toFixed(5);
-		let currentDistance;
+		let currentDistance = distance;
 
 		if (distance < 0) {
-            currentDistance = ((100 * currentRadius * 0.4) / currentRadius).toFixed(5);
+            currentDistance = currentRadius + 30;
         }
 
 		for (let i = 0; i < length; i++) {
 			const item = items[i];
-			left = (50 - currentDistance * Math.cos(-0.5 * Math.PI - (2 * Math.PI * i) / length)).toFixed(8) + "%"
-			top = (50 + currentDistance * Math.sin(-0.5 * Math.PI - (2 * Math.PI * i) / length)).toFixed(8) + "%";
+			left = `calc(50% + ${-currentDistance * (Math.cos(-0.5 * Math.PI - (2 * Math.PI * i) / length))}px)`;
+			top = `calc(50% + ${currentDistance * (Math.sin(-0.5 * Math.PI - (2 * Math.PI * i) / length))}px)`;
+
 			result.push(<RadialItem
                 key={i}
                 radius={currentRadius}
@@ -83,9 +85,7 @@ class RadialMenu extends Component {
 	handleEnter = (event, element) => {
 		element.toggleClass("hover");
 		$(".hover").velocity("stop").velocity(
-			{
-			 	scale:1.25
-			},
+			{scale:1.25},
 			{duration: 200});
 		}
 
@@ -107,8 +107,8 @@ class RadialMenu extends Component {
 
     render () {
         const { radius, items } = this.props
-      	const sizeCenter = (radius /2.6).toFixed(5);
-      	const _items = this.createItems(items, sizeCenter);
+      	const sizeCenter = (radius / 2.6).toFixed(5);
+      	const currentItems = this.createItems(items, sizeCenter);
       	const sizeNav = radius * 2;
 
       	const navStyle = {
@@ -120,10 +120,7 @@ class RadialMenu extends Component {
       		<nav className="radial-menu-nav" style={navStyle}>
 
       		<div className="radial-menu-circle">
-      		{_items.map(function(item) {
-      			return item;
-      		})}
-
+                {currentItems.map(item => item)}
       		</div>
 
       		<RadialItem

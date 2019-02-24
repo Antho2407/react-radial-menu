@@ -35,46 +35,70 @@ export default class App extends Component {
 		this.setState({stagger: event.target.value});
 	}
 
+    setDistance = event => {
+		this.setState({distance: event.target.value});
+	}
+
 	render () {
-		return (
-			<div id="container">
-				<div id="panel-options">
-					<h2>Animation</h2>
-					<select id="selectAnimation" onChange={this.setAnimation} defaultValue={200}>
-			            <option value="transition.swoopIn">Default</option>
-			            <option value="transition.shrinkIn">shrinkIn</option>
-			            <option value="transition.fadeIn">fadeIn</option>
-			            <option value="transition.flipYIn">flipYIn</option>
-			            <option value="transition.flipBounceXIn">flipBounceXIn</option>
-			        </select>
-			        <h2>Speed</h2>
-			        <select id="selectDuration" onChange={this.setDuration} defaultValue={600}>
-			            <option value={600}>Default</option>
-			            <option value={400}>400</option>
-			            <option value={600}>600</option>
-			            <option value={800}>800</option>
-			            <option value={1000}>1000</option>
-			        </select>
-			        <h2>Stagger</h2>
-			        <select id="selectStagger" onChange={this.setStagger} defaultValue={200}>
-			            <option value={200}>Default</option>
-			            <option value={0}>0</option>
-			            <option value={50}>50</option>
-			            <option value={100}>100</option>
-			            <option value={150}>150</option>
-			            <option value={200}>200</option>
-			        </select>
-		        </div>
-    			<RadialMenu
-                    items={items}
-                    center={center}
-                    animation={this.state.animation}
-                    duration={this.state.duration}
-                    stagger={this.state.stagger}
-                    radius={200}
+        const {
+            animation,
+            duration,
+            stagger,
+            distance
+        } = this.state
+
+		return <div id="container">
+			<div id="panel-options">
+				<h2>Animation</h2>
+				<select id="selectAnimation" onChange={this.setAnimation} defaultValue={200}>
+		            <option value="transition.swoopIn">Default</option>
+		            <option value="transition.shrinkIn">shrinkIn</option>
+		            <option value="transition.fadeIn">fadeIn</option>
+		            <option value="transition.flipYIn">flipYIn</option>
+		            <option value="transition.flipBounceXIn">flipBounceXIn</option>
+		        </select>
+		        <h2>Speed</h2>
+		        <select id="selectDuration" onChange={this.setDuration} defaultValue={600}>
+		            <option value={600}>Default</option>
+		            <option value={400}>400</option>
+		            <option value={600}>600</option>
+		            <option value={800}>800</option>
+		            <option value={1000}>1000</option>
+		        </select>
+		        <h2>Stagger</h2>
+		        <select id="selectStagger" onChange={this.setStagger} defaultValue={200}>
+		            <option value={200}>Default</option>
+		            <option value={0}>0</option>
+		            <option value={50}>50</option>
+		            <option value={100}>100</option>
+		            <option value={150}>150</option>
+		            <option value={200}>200</option>
+		        </select>
+                <h2>Distance</h2>
+		        <select id="selectStagger" onChange={this.setDistance} defaultValue={-1}>
+		            <option value={-1}>Default</option>
+		            <option value={100}>100</option>
+		            <option value={150}>150</option>
+		            <option value={200}>200</option>
+		        </select>
+	        </div>
+			<RadialMenu
+                items={items}
+                center={center}
+                animation={animation}
+                duration={duration}
+                stagger={stagger}
+                radius={200}
+                distance={distance}
+            />
+			<a href="https://github.com/Antho2407">
+                <img
+                    className="fork-img"
+                    src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67"
+                    alt="Fork me on GitHub"
+                    data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
                 />
-    			<a href="https://github.com/Antho2407"><img className="fork-img" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"/></a>
-    		</div>
-    	);
+            </a>
+		</div>;
    }
 }
