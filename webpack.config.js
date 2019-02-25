@@ -38,7 +38,6 @@ module.exports = {
         htmlWebpackPlugin
     ],
     devServer: {
-        contentBase: './dist',
         hot: true
     }
 };
