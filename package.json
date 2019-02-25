@@ -1,6 +1,6 @@
 {
   "name": "react-radial-menu",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "description": "ReactJS circular menu",
   "main": "dist/index.js",
   "scripts": {
