@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react"
 import PropTypes from "prop-types"
 import RadialItem from "./RadialItem"
+import './styles.scss';
 
 window.jQuery = window.$ = require("jquery");
 

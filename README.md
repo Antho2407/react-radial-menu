@@ -5,7 +5,7 @@ A ReactJS circular menu
 
 ## Demo
 
-Live demo: https://antho2407.github.io/
+Live demo: https://antho2407.github.io/react-radial-menu/
 
 Build the example
 
@@ -13,7 +13,7 @@ Build the example
 yarn
 yarn build
 
-And open the file dist/index.html
+And open the file examples/dist/index.html
 ```
 
 ## Installation

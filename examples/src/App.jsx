@@ -1,7 +1,5 @@
 import React, { Component } from "react"
-import RadialMenu from "./components/RadialMenu"
-
-import "./styles/app.scss"
+import RadialMenu from "../../src/index"
 
 const items = [
 	{"href":"http://www.facebook.com", "image":"url(./images/social/facebook.png)"},

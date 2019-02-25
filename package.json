@@ -2,16 +2,21 @@
   "name": "react-radial-menu",
   "version": "1.0.0-beta.0",
   "description": "ReactJS circular menu",
-  "main": "src/js/components/radial-menu.react.js",
+  "main": "dist/index.js",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
     "test": "echo \"No test specified\" && exit 0",
-    "build": "webpack"
+    "transpile": "babel src -d dist --copy-files",
+    "prepublishOnly": "yarn transpile",
+    "build": "webpack --mode production",
+    "deploy": "gh-pages -d examples/dist",
+    "publish-demo": "yarn build && yarn deploy"
   },
   "dependencies": {
     "jquery": "^3.3.1",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
+    "react-radial-menu": "^1.0.0-beta.0",
     "velocity-animate": "^1.5.2"
   },
   "devDependencies": {
@@ -19,10 +24,16 @@
     "@babel/plugin-proposal-class-properties": "^7.3.3",
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-loader": "^8.0.5",
-    "babel-preset-es2015": "^6.24.1",
     "css-loader": "^2.1.0",
+    "eslint": "^5.14.1",
+    "eslint-plugin-react": "^7.12.4",
+    "gh-pages": "^2.0.1",
+    "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.11.0",
+    "path": "^0.12.7",
     "react-hot-loader": "^4.7.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
