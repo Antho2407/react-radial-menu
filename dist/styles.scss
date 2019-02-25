@@ -1,0 +1,49 @@
+.radial-menu-container {
+  display: block;
+}
+
+.radial-menu-circle {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  display: block;
+}
+
+.radial-menu-button {
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-decoration: none;
+  text-align: center;
+  color: #444;
+  border: 2px solid #A83434;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.radial-menu-button:hover {
+  z-index: 2;
+}
+
+.radial-menu-circle a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  position: absolute;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #3D3D3D;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 2px 2px 5px -1px #000000;
+}
+
+.radial-menu-circle a:active,a:focus {
+  outline: none;
+}
