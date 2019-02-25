@@ -1,13 +1,5 @@
-.radial-menu-nav {
-  width: 400px;
-  height: 400px;
-  position: absolute;
-  text-align: center;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
+.radial-menu-container {
+  display: block;
 }
 
 .radial-menu-circle {
@@ -18,7 +10,6 @@
 }
 
 .radial-menu-button {
-  position: absolute;
   display: block;
   top: 0;
   bottom: 0;
@@ -36,9 +27,6 @@
 
 .radial-menu-button:hover {
   z-index: 2;
-}
-
-.radial-menu-button.open {
 }
 
 .radial-menu-circle a {

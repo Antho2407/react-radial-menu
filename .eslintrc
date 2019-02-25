@@ -1,0 +1,48 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "standard",
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
+  "settings": {
+    "react": {
+      "version": "16.0"
+    },
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": [
+          "node_modules",
+          "source"
+        ]
+      }
+    },
+    "import/ignore": [ "node_modules", "\\.(scss|less|css)$" ]
+  },
+  "parser": "babel-eslint",
+  "env": {
+    "jest": true,
+    "browser": true
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "no-console": [1],
+    "jsx-quotes": ["error", "prefer-single"],
+    "object-curly-spacing": ["error", "always"],
+    "react/jsx-curly-spacing": ["error", "always", { "spacing": { "objectLiterals": "never" }}],
+    "no-case-declarations": 0,
+    "indent": ["error", 4, { "SwitchCase": 1 }],
+    "camelcase": [0],
+    "standard/no-callback-literal": "off",
+    "import/no-named-as-default": "off"
+  }
+}
