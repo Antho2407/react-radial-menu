@@ -132,7 +132,9 @@ RadialMenu.propTypes = {
     stagger: PropTypes.number,
     itemsSize: PropTypes.number,
     easing: PropTypes.array,
-    distance: PropTypes.number
+    distance: PropTypes.number,
+    center: PropTypes.object.isRequired,
+    items: PropTypes.array.isRequired
 }
 
 RadialMenu.defaultProps = {
