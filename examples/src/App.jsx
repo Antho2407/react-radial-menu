@@ -24,7 +24,7 @@ export default class App extends Component {
      }
 
 	setAnimation = event => {
-		this.setState({animation: parseInt(event.target.value)});
+		this.setState({animation: event.target.value});
 	}
 
 	setDuration = event => {
