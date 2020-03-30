@@ -69,6 +69,7 @@ class RadialMenu extends Component {
                 left={left}
                 top={top}
                 image={item.image}
+                handleClick={item.onClick}
             >
                 {item.text}
             </RadialItem>);

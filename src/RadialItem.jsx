@@ -14,7 +14,6 @@ class RadialItem extends Component {
             left,
             image,
             handleClick,
-            href,
             children
         } = this.props
         const marginValue = (-1) * (size / 2) + "px";
@@ -40,7 +39,6 @@ class RadialItem extends Component {
         }
 
         return <a
-            href={href}
             className={className}
             style={itemStyle}
             onClick={handleClick}
@@ -52,7 +50,6 @@ class RadialItem extends Component {
 
 RadialItem.propTypes = {
     className: PropTypes.string,
-    href: PropTypes.string,
     top: PropTypes.string,
     left: PropTypes.string,
     value: PropTypes.string,
